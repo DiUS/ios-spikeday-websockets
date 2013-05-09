@@ -1,0 +1,3 @@
+[submodule "ios-client/libs/SocketRocket"]
+	path = ios-client/libs/SocketRocket
+	url = https://github.com/square/SocketRocket.git
