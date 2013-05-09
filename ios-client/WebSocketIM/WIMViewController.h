@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SocketRocket/SRWebSocket.h>
 
-@interface WIMViewController : UIViewController <UITextViewDelegate, UITableViewDelegate>
+@interface WIMViewController : UIViewController <UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, SRWebSocketDelegate>
 
 @end

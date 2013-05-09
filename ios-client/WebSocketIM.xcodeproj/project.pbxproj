@@ -17,6 +17,12 @@
 		B6331C1A173B135E0062C477 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6331C19173B135E0062C477 /* Default@2x.png */; };
 		B6331C1C173B135E0062C477 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6331C1B173B135E0062C477 /* Default-568h@2x.png */; };
 		B6331C1F173B135E0062C477 /* WIMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6331C1E173B135E0062C477 /* WIMViewController.m */; };
+		B66A95B1173B530F00169E08 /* libSocketRocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B66A95B0173B530F00169E08 /* libSocketRocket.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		B6C37740173B5E68009A2BEA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C3773F173B5E68009A2BEA /* Security.framework */; };
+		B6C37742173B5E71009A2BEA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C37741173B5E71009A2BEA /* CFNetwork.framework */; };
+		B6C37744173B5E88009A2BEA /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C37743173B5E88009A2BEA /* libicucore.dylib */; };
+		B6C3774A173B6645009A2BEA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C37749173B6645009A2BEA /* Icon.png */; };
+		B6C3774C173B6663009A2BEA /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C3774B173B6663009A2BEA /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +44,12 @@
 		B6331C2A173B38200062C477 /* common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = common.xcconfig; sourceTree = "<group>"; };
 		B6331C2B173B39F90062C477 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
 		B6331C2C173B3A330062C477 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
+		B66A95B0173B530F00169E08 /* libSocketRocket.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSocketRocket.a; path = "libs/SocketRocket/build/Debug-iphoneos/libSocketRocket.a"; sourceTree = "<group>"; };
+		B6C3773F173B5E68009A2BEA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B6C37741173B5E71009A2BEA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		B6C37743173B5E88009A2BEA /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		B6C37749173B6645009A2BEA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		B6C3774B173B6663009A2BEA /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +57,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6C37744173B5E88009A2BEA /* libicucore.dylib in Frameworks */,
+				B6C37742173B5E71009A2BEA /* CFNetwork.framework in Frameworks */,
+				B6C37740173B5E68009A2BEA /* Security.framework in Frameworks */,
+				B66A95B1173B530F00169E08 /* libSocketRocket.a in Frameworks */,
 				B6331C06173B135D0062C477 /* UIKit.framework in Frameworks */,
 				B6331C08173B135D0062C477 /* Foundation.framework in Frameworks */,
 				B6331C0A173B135D0062C477 /* CoreGraphics.framework in Frameworks */,
@@ -74,6 +90,10 @@
 		B6331C04173B135D0062C477 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6C37743173B5E88009A2BEA /* libicucore.dylib */,
+				B6C37741173B5E71009A2BEA /* CFNetwork.framework */,
+				B6C3773F173B5E68009A2BEA /* Security.framework */,
+				B66A95B0173B530F00169E08 /* libSocketRocket.a */,
 				B6331C05173B135D0062C477 /* UIKit.framework */,
 				B6331C07173B135D0062C477 /* Foundation.framework */,
 				B6331C09173B135D0062C477 /* CoreGraphics.framework */,
@@ -103,6 +123,8 @@
 				B6331C17173B135D0062C477 /* Default.png */,
 				B6331C19173B135E0062C477 /* Default@2x.png */,
 				B6331C1B173B135E0062C477 /* Default-568h@2x.png */,
+				B6C3774B173B6663009A2BEA /* Icon@2x.png */,
+				B6C37749173B6645009A2BEA /* Icon.png */,
 				B6331C2A173B38200062C477 /* common.xcconfig */,
 				B6331C2B173B39F90062C477 /* release.xcconfig */,
 				B6331C2C173B3A330062C477 /* debug.xcconfig */,
@@ -166,6 +188,8 @@
 				B6331C18173B135E0062C477 /* Default.png in Resources */,
 				B6331C1A173B135E0062C477 /* Default@2x.png in Resources */,
 				B6331C1C173B135E0062C477 /* Default-568h@2x.png in Resources */,
+				B6C3774A173B6645009A2BEA /* Icon.png in Resources */,
+				B6C3774C173B6663009A2BEA /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +284,7 @@
 				GCC_PREFIX_HEADER = "WebSocketIM/WebSocketIM-Prefix.pch";
 				INFOPLIST_FILE = "WebSocketIM/WebSocketIM-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -273,6 +298,7 @@
 				GCC_PREFIX_HEADER = "WebSocketIM/WebSocketIM-Prefix.pch";
 				INFOPLIST_FILE = "WebSocketIM/WebSocketIM-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -297,6 +323,7 @@
 				B6331C27173B135E0062C477 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

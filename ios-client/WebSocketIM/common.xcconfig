@@ -1,4 +1,6 @@
 
+SUPPORTED_PLATFORMS = iphonesimulator iphoneos
+
 CLANG_ENABLE_OBJC_ARC = YES
 
 // Compiler warnings
@@ -29,3 +31,7 @@ GCC_WARN_UNUSED_PARAMETER = NO
 GCC_WARN_UNUSED_VARIABLE = YES
 SHARED_PRECOMPS_DIR = build/
 
+HEADER_SEARCH_PATHS = $(inherited) "$(SRCROOT)" "$(PROJECT_DIR)/libs/SocketRocket"
+OTHER_LDFLAGS = -ObjC -all_load
+
+SERVER_SCHEME=ws

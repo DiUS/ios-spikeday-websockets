@@ -1,2 +1,4 @@
-
 #include "common.xcconfig"
+
+LIBRARY_SEARCH_PATHS[sdk=iphoneos*] = $(inherited) "$(SRCROOT)" "$(PROJECT_DIR)/libs/SocketRocket/build/Release-iphoneos"
+LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*] = $(inherited) "$(SRCROOT)" "$(PROJECT_DIR)/libs/SocketRocket/build/Release-iphonesimulator"
