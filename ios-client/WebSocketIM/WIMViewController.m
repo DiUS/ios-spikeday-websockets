@@ -8,11 +8,12 @@
 
 #import "WIMViewController.h"
 
+#import "SocketIOPacket.h"
 
 @interface WIMViewController ()
 @property (nonatomic, strong) UITableView *messageTableView;
 @property (nonatomic, strong) UITextView *inputView;
-@property (nonatomic, strong) SRWebSocket *webSocket;
+@property (nonatomic, strong) SocketIO *webSocket;
 @property (nonatomic, strong) NSMutableArray *datasource;
 @end
 
@@ -66,7 +67,7 @@
                                                                     options:0
                                                                     metrics:nil
                                                                       views:viewsDict]];
-  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_messageTableView]-[_inputView(>=50)]|"
+  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_messageTableView]-[_inputView(50)]|"
                                                                     options:0
                                                                     metrics:nil
                                                                       views:viewsDict]];
@@ -74,17 +75,17 @@
 
 -(void)connect {
   if (!self.webSocket) {
-    NSString *location = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ServerLocation"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:location]];
-    self.webSocket = [[SRWebSocket alloc] initWithURLRequest:request];
-    self.webSocket.delegate = self;
-    [self.webSocket open];
+    self.webSocket = [[SocketIO alloc] initWithDelegate:self];
   }
   
-  SRReadyState state = [self.webSocket readyState];
-  if (state == SR_CLOSED || state == SR_CLOSING) {
-    [self.webSocket open];
+  if (self.webSocket.isConnected || self.webSocket.isConnecting) {
+    return;
   }
+  
+  NSString *location = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ServerLocation"];
+  DLog(@"location: %@", location);
+  NSURL *url = [NSURL URLWithString:location];
+  [self.webSocket connectToHost:url.host onPort:[url.port integerValue]];
 }
 
 -(void)disconnect {
@@ -92,14 +93,11 @@
     return;
   }
   
-  SRReadyState state = [self.webSocket readyState];
-  if (state == SR_CLOSED || state == SR_CLOSING) {
+  if (!self.webSocket.isConnected || !self.webSocket.isConnecting) {
     return;
   }
 
-  // TODO: Investigate issue with SocketRocket not closing the connection when requested
-  // Results in bad state and assertion on second call to open
-//  [self.webSocket close];
+  [self.webSocket disconnect];
 }
 
 -(void)send:(NSString*)message {
@@ -107,12 +105,12 @@
     return;
   }
   
-  if ([self.webSocket readyState] != SR_OPEN) {
+  if (!self.webSocket.isConnected) {
     return;
   }
   
   DLog(@"Send message: %@", message);
-  [self.webSocket send:message];
+  [self.webSocket sendMessage:message];
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
@@ -198,7 +196,7 @@
   NSString *cellReuseIdentifier = @"messageCell";
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseIdentifier];
   if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
                                   reuseIdentifier:cellReuseIdentifier];
   }
   
@@ -213,27 +211,55 @@
   return cell;
 }
 
-#pragma mark - SRWebSocketDelegate
-
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
-  DLog(@"Received message: %@", message);
+-(void)addMessage:(NSString*)message {
   [self.datasource addObject:message];
   [self.messageTableView reloadData];
-  
   NSIndexPath* ipath = [NSIndexPath indexPathForRow:(NSInteger)[self.datasource count]-1 inSection:0];
   [self.messageTableView scrollToRowAtIndexPath:ipath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
-- (void)webSocketDidOpen:(SRWebSocket *)webSocket {
-  DLog(@"open: %u", [webSocket readyState]);
+#pragma mark - SocketIODelegate
+
+- (void) socketIODidConnect:(SocketIO *)socket {
+  DLog(@"connected: %@", [socket host]);
 }
 
-- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
-  DLog(@"%@", error.description);
+- (void) socketIODidDisconnect:(SocketIO *)socket disconnectedWithError:(NSError *)error {
+  DLog(@"disconnected: %@ (error: %@)", [socket host], error.description);
 }
 
-- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
-  DLog(@"(%d) %@", code, reason);
+- (void) socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet {
+  DLog(@"Received message: %@", packet.data);
 }
+
+- (void) socketIO:(SocketIO *)socket didReceiveJSON:(SocketIOPacket *)packet {
+  DLog(@"Received json: %@", packet.data);
+}
+
+- (void) socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet {
+  DLog(@"Received event: %@", packet.data);
+  
+  NSDictionary *json = [packet dataAsJSON];
+  if ([[json valueForKeyPath:@"name"] isEqualToString:@"server_message"]) {
+    
+    NSString *message = [packet.args objectAtIndex:0];
+    [self addMessage:message];
+  }
+}
+
+- (void) socketIO:(SocketIO *)socket didSendMessage:(SocketIOPacket *)packet {
+  DLog(@"message sent: %@", packet.data);
+  
+  NSDictionary *json = [packet dataAsJSON];
+  if ([[json valueForKeyPath:@"name"] isEqualToString:@"server_message"]) {
+    NSString *message = [packet.args objectAtIndex:0];
+    [self addMessage:message];
+  }
+}
+
+- (void) socketIO:(SocketIO *)socket onError:(NSError *)error {
+  DLog(@"Error: %@", error.description);
+}
+
 
 @end

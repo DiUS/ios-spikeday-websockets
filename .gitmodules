@@ -1,3 +1,6 @@
 [submodule "ios-client/libs/SocketRocket"]
 	path = ios-client/libs/SocketRocket
 	url = https://github.com/square/SocketRocket.git
+[submodule "ios-client/libs/socket.io-objc"]
+	path = ios-client/libs/socket.io-objc
+	url = https://github.com/pkyeck/socket.IO-objc.git

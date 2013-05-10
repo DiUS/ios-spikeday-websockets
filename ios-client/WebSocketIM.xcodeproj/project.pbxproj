@@ -17,7 +17,11 @@
 		B6331C1A173B135E0062C477 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6331C19173B135E0062C477 /* Default@2x.png */; };
 		B6331C1C173B135E0062C477 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6331C1B173B135E0062C477 /* Default-568h@2x.png */; };
 		B6331C1F173B135E0062C477 /* WIMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6331C1E173B135E0062C477 /* WIMViewController.m */; };
-		B66A95B1173B530F00169E08 /* libSocketRocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B66A95B0173B530F00169E08 /* libSocketRocket.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		B69995D1173C8B9800A40561 /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = B69995C7173C8B8E00A40561 /* SocketIO.m */; };
+		B69995D2173C8B9800A40561 /* SocketIOJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B69995C9173C8B8E00A40561 /* SocketIOJSONSerialization.m */; };
+		B69995D3173C8B9800A40561 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = B69995CB173C8B8E00A40561 /* SocketIOPacket.m */; settings = {COMPILER_FLAGS = "-Wno-sign-conversion"; }; };
+		B69995D4173C8B9800A40561 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B69995CE173C8B8E00A40561 /* SocketIOTransportWebsocket.m */; };
+		B69995D5173C8B9800A40561 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = B69995D0173C8B8E00A40561 /* SocketIOTransportXHR.m */; settings = {COMPILER_FLAGS = "-Wno-shadow"; }; };
 		B6C37740173B5E68009A2BEA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C3773F173B5E68009A2BEA /* Security.framework */; };
 		B6C37742173B5E71009A2BEA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C37741173B5E71009A2BEA /* CFNetwork.framework */; };
 		B6C37744173B5E88009A2BEA /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C37743173B5E88009A2BEA /* libicucore.dylib */; };
@@ -44,7 +48,17 @@
 		B6331C2A173B38200062C477 /* common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = common.xcconfig; sourceTree = "<group>"; };
 		B6331C2B173B39F90062C477 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
 		B6331C2C173B3A330062C477 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
-		B66A95B0173B530F00169E08 /* libSocketRocket.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSocketRocket.a; path = "libs/SocketRocket/build/Debug-iphoneos/libSocketRocket.a"; sourceTree = "<group>"; };
+		B69995C6173C8B8E00A40561 /* SocketIO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SocketIO.h; path = "libs/socket.io-objc/SocketIO.h"; sourceTree = SOURCE_ROOT; };
+		B69995C7173C8B8E00A40561 /* SocketIO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SocketIO.m; path = "libs/socket.io-objc/SocketIO.m"; sourceTree = SOURCE_ROOT; };
+		B69995C8173C8B8E00A40561 /* SocketIOJSONSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SocketIOJSONSerialization.h; path = "libs/socket.io-objc/SocketIOJSONSerialization.h"; sourceTree = SOURCE_ROOT; };
+		B69995C9173C8B8E00A40561 /* SocketIOJSONSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SocketIOJSONSerialization.m; path = "libs/socket.io-objc/SocketIOJSONSerialization.m"; sourceTree = SOURCE_ROOT; };
+		B69995CA173C8B8E00A40561 /* SocketIOPacket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SocketIOPacket.h; path = "libs/socket.io-objc/SocketIOPacket.h"; sourceTree = SOURCE_ROOT; };
+		B69995CB173C8B8E00A40561 /* SocketIOPacket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SocketIOPacket.m; path = "libs/socket.io-objc/SocketIOPacket.m"; sourceTree = SOURCE_ROOT; };
+		B69995CC173C8B8E00A40561 /* SocketIOTransport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SocketIOTransport.h; path = "libs/socket.io-objc/SocketIOTransport.h"; sourceTree = SOURCE_ROOT; };
+		B69995CD173C8B8E00A40561 /* SocketIOTransportWebsocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SocketIOTransportWebsocket.h; path = "libs/socket.io-objc/SocketIOTransportWebsocket.h"; sourceTree = SOURCE_ROOT; };
+		B69995CE173C8B8E00A40561 /* SocketIOTransportWebsocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportWebsocket.m; path = "libs/socket.io-objc/SocketIOTransportWebsocket.m"; sourceTree = SOURCE_ROOT; };
+		B69995CF173C8B8E00A40561 /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SocketIOTransportXHR.h; path = "libs/socket.io-objc/SocketIOTransportXHR.h"; sourceTree = SOURCE_ROOT; };
+		B69995D0173C8B8E00A40561 /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportXHR.m; path = "libs/socket.io-objc/SocketIOTransportXHR.m"; sourceTree = SOURCE_ROOT; };
 		B6C3773F173B5E68009A2BEA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B6C37741173B5E71009A2BEA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		B6C37743173B5E88009A2BEA /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -60,7 +74,6 @@
 				B6C37744173B5E88009A2BEA /* libicucore.dylib in Frameworks */,
 				B6C37742173B5E71009A2BEA /* CFNetwork.framework in Frameworks */,
 				B6C37740173B5E68009A2BEA /* Security.framework in Frameworks */,
-				B66A95B1173B530F00169E08 /* libSocketRocket.a in Frameworks */,
 				B6331C06173B135D0062C477 /* UIKit.framework in Frameworks */,
 				B6331C08173B135D0062C477 /* Foundation.framework in Frameworks */,
 				B6331C0A173B135D0062C477 /* CoreGraphics.framework in Frameworks */,
@@ -93,7 +106,6 @@
 				B6C37743173B5E88009A2BEA /* libicucore.dylib */,
 				B6C37741173B5E71009A2BEA /* CFNetwork.framework */,
 				B6C3773F173B5E68009A2BEA /* Security.framework */,
-				B66A95B0173B530F00169E08 /* libSocketRocket.a */,
 				B6331C05173B135D0062C477 /* UIKit.framework */,
 				B6331C07173B135D0062C477 /* Foundation.framework */,
 				B6331C09173B135D0062C477 /* CoreGraphics.framework */,
@@ -104,6 +116,7 @@
 		B6331C0B173B135D0062C477 /* WebSocketIM */ = {
 			isa = PBXGroup;
 			children = (
+				B69995C5173C8B6300A40561 /* socket.io-objc */,
 				B6331C14173B135D0062C477 /* WIMAppDelegate.h */,
 				B6331C15173B135D0062C477 /* WIMAppDelegate.m */,
 				B6331C1D173B135E0062C477 /* WIMViewController.h */,
@@ -130,6 +143,24 @@
 				B6331C2C173B3A330062C477 /* debug.xcconfig */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B69995C5173C8B6300A40561 /* socket.io-objc */ = {
+			isa = PBXGroup;
+			children = (
+				B69995C6173C8B8E00A40561 /* SocketIO.h */,
+				B69995C7173C8B8E00A40561 /* SocketIO.m */,
+				B69995C8173C8B8E00A40561 /* SocketIOJSONSerialization.h */,
+				B69995C9173C8B8E00A40561 /* SocketIOJSONSerialization.m */,
+				B69995CA173C8B8E00A40561 /* SocketIOPacket.h */,
+				B69995CB173C8B8E00A40561 /* SocketIOPacket.m */,
+				B69995CC173C8B8E00A40561 /* SocketIOTransport.h */,
+				B69995CD173C8B8E00A40561 /* SocketIOTransportWebsocket.h */,
+				B69995CE173C8B8E00A40561 /* SocketIOTransportWebsocket.m */,
+				B69995CF173C8B8E00A40561 /* SocketIOTransportXHR.h */,
+				B69995D0173C8B8E00A40561 /* SocketIOTransportXHR.m */,
+			);
+			name = "socket.io-objc";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +234,11 @@
 				B6331C12173B135D0062C477 /* main.m in Sources */,
 				B6331C16173B135D0062C477 /* WIMAppDelegate.m in Sources */,
 				B6331C1F173B135E0062C477 /* WIMViewController.m in Sources */,
+				B69995D1173C8B9800A40561 /* SocketIO.m in Sources */,
+				B69995D2173C8B9800A40561 /* SocketIOJSONSerialization.m in Sources */,
+				B69995D3173C8B9800A40561 /* SocketIOPacket.m in Sources */,
+				B69995D4173C8B9800A40561 /* SocketIOTransportWebsocket.m in Sources */,
+				B69995D5173C8B9800A40561 /* SocketIOTransportXHR.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

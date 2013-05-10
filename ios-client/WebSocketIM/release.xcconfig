@@ -1,4 +1,8 @@
 #include "common.xcconfig"
 
-LIBRARY_SEARCH_PATHS[sdk=iphoneos*] = $(inherited) "$(SRCROOT)" "$(PROJECT_DIR)/libs/SocketRocket/build/Release-iphoneos"
-LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*] = $(inherited) "$(SRCROOT)" "$(PROJECT_DIR)/libs/SocketRocket/build/Release-iphonesimulator"
+LIBRARY_SEARCH_PATHS[sdk=iphoneos*] = $(inherited) "$(SRCROOT)" "$(SOCKETROCKET_DIR)/build/Release-iphoneos"
+LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*] = $(inherited) "$(SRCROOT)" "$(SOCKETROCKET_DIR)/build/Release-iphonesimulator"
+
+SERVER_HOST=echo.websocket.org
+SERVER_PORT=80
+SERVER_URL=$(SERVER_HOST):$(SERVER_PORT)
